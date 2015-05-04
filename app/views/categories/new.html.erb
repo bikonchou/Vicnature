@@ -1,0 +1,12 @@
+<h1>Categories#new</h1>
+<p>Find me in app/views/categories/new.html.erb</p>
+
+<%= form_for @category, :url => categories_path do |c| %>
+	<%= c.label :title, "輸入類別名稱" %>	
+	<%= c.text_field :title %>
+
+	<%= c.label :description, "輸入類別敘述" %>
+	<%= c.text_field :description %>
+
+	<%= c.submit "送出" %>
+<% end %>

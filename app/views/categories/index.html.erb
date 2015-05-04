@@ -1,0 +1,10 @@
+<% @category.each do |c| %>
+	<%= c.id %>
+	<%= c.title %>
+	
+	<%= link_to "修改", edit_category_path(c.id) %>
+	<%= link_to "刪除", category_path(c.id), :method => :delete %>
+	<br>
+<% end %>
+
+<%= link_to "新增類別", new_category_path %>

@@ -1,0 +1,8 @@
+<%= form_for @category, :url => category_path(@category), :method => :patch do |c| %>
+	<%= c.label :title, "修改類別名稱" %>
+	<%= c.text_field :title %>
+	<%= c.label :description, "修改類別內容" %>
+	<%= c.text_field :description %>
+
+	<%= c.submit "送出" %>
+<% end %>
