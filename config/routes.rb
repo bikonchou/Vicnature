@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-
+  resources :users
+  resource :login, only: [:new, :create, :destroy]
   resources :categories do
     resources :products, :controller => 'category_products'
   end
