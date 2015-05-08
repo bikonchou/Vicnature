@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+# Bootstrap
+gem 'bootstrap-sass'
+
+# Paperclup => upload images
+gem 'paperclip', "~> 4.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

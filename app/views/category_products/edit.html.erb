@@ -1,0 +1,16 @@
+<%= form_for @product, :url => category_product_path(@category, @product), :html => {:method => :patch} do |p|%>
+
+<%= p.label :name, "輸入商品名稱" %>	
+<%= p.text_field :name %>
+
+<%= p.label :description, "輸入商品敘述" %>
+<%= p.text_field :description %>
+
+<%= p.label :price, "輸入商品售價" %>
+<%= p.text_field :price %>
+
+<%= p.label :image, "選擇商品圖片" %>
+<%= p.file_field :image %>
+
+<%= p.submit "送出" %>
+<% end %>

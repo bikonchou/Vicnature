@@ -1,0 +1,21 @@
+<h1>Products#new</h1>
+<p>Find me in app/views/products/new.html.erb</p>
+
+<%= form_for @product, :url => products_path do |p|%>
+<%= p.label :category_id, "選擇商品類別" %>
+<%= p.select :category_id, Category.all.collect { |c| [c.title, c.id] }, include_blank: true %>
+
+<%= p.label :name, "輸入商品名稱" %>	
+<%= p.text_field :name %>
+
+<%= p.label :description, "輸入商品敘述" %>
+<%= p.text_field :description %>
+
+<%= p.label :price, "輸入商品售價" %>
+<%= p.text_field :price %>
+
+<%= p.label :image, "選擇商品圖片" %>
+<%= p.file_field :image %>
+
+<%= p.submit "送出" %>
+<% end %>

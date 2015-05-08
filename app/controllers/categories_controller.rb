@@ -9,9 +9,13 @@ class CategoriesController < ApplicationController
 
   def create
   	@category = Category.new(category_params)	
-  	@category.save
-
-  	redirect_to categories_path
+  	if @category.save  
+      flash[:success] = "成功新增商品類別"
+      redirect_to categories_path
+    else
+      flash[:error] = ""  
+  	  render :action => :new
+    end
   end
 
   def edit
@@ -20,16 +24,23 @@ class CategoriesController < ApplicationController
 
   def update
   	@category = Category.find(params[:id])	
-  	@category.update(update_category_params)
-
-  	redirect_to categories_path
+  	if @category.update(update_category_params)
+       flash[:success] = "成功修改商品類別"
+  	   redirect_to categories_path
+    else
+       flash[:error] = ""
+       render :action => :edit
+     end
   end
 
   def destroy
   	@category = Category.find(params[:id])
-  	@category.destroy
-
-  	redirect_to categories_path
+  	if @category.destroy
+       flash[:success] = "已成功刪除商品類別"
+    else
+       flash[:error] = ""
+    end
+    redirect_to categories_path
   end
 
   private

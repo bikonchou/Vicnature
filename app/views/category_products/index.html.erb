@@ -1,0 +1,10 @@
+<% @products.each do |p| %>
+	<%= p.name %>
+	<%= p.id %>
+	<%= image_tag p.image.url %>
+	<%= link_to "修改", edit_category_product_path(@category, p) %>
+	<%= link_to "刪除", category_product_path(@category, p), :method => :delete %>
+	<br>
+<% end %>
+
+	<%= link_to '新增類別商品', new_category_product_path(@category) %>

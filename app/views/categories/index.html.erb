@@ -1,7 +1,7 @@
 <% @category.each do |c| %>
 	<%= c.id %>
 	<%= c.title %>
-	
+	<%= link_to "#{c.title}", category_products_path(c) %>
 	<%= link_to "修改", edit_category_path(c.id) %>
 	<%= link_to "刪除", category_path(c.id), :method => :delete %>
 	<br>
