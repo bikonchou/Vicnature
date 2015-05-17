@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  
+  namespace :admin do
+    resources :categories do
+      resources :products, :controller => 'category_products'
+    end
+  end
+
   resources :users
   resource :login, only: [:new, :create, :destroy]
   resources :categories do

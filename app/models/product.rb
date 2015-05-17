@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 	
 	# 外部鍵索引
-	add_index :products, :category_id
+	# add_index :products, :category_id
 
 	# 價錢須為整數
 	validates_numericality_of :price, :only_integer => true

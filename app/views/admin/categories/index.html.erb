@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_categories.each do |admin_category| %>
+      <tr>
+        <td><%= admin_category.title %></td>
+        <td><%= link_to '類別商品', admin_category_products_path(admin_category) %></td>
+        <td><%= link_to 'Show', admin_category %></td>
+        <td><%= link_to 'Edit', edit_admin_category_path(admin_category) %></td>
+        <td><%= link_to 'Destroy', admin_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category', new_admin_category_path %>
