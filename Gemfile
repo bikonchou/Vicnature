@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Font Awesome SASS
+gem 'font-awesome-sass'
+
 # Bootstrap
 gem 'bootstrap-sass'
 

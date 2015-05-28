@@ -1,0 +1,24 @@
+<div class= "col-md-offset-4 col-md-4">
+	<h3>Admin > Categories > <%= @admin_category.title %> > <%= @product.name %> > Edit</h3>
+	<br>
+	<%= form_for @product, :url => admin_category_product_path(@admin_category, @product), :method => :patch, class: "form-horizontal" do |product|%>
+		<div class="form-group">
+			<%= product.label :name, "輸入商品名稱" %>	
+			<%= product.text_field :name, class: "form-control", placeholder: "輸入商品名稱" %>
+			<br>
+			<%= product.label :description, "輸入商品敘述" %>
+			<%= product.text_area :description, class: "form-control", placeholder: "輸入商品敘述" %>
+			<br>
+			<%= product.label :price, "輸入商品售價" %>
+			<%= product.text_field :price, class: "form-control", placeholder: "輸入商品售價" %>
+			<br>
+			<%= product.label :image, "選擇商品圖片" %>
+			<%= product.file_field :image, class: "form-control" %>
+	  	</div>
+			<br>
+		<%= product.submit "送出", class: "btn btn-success" %>
+		<br>
+		<br>
+		<%= link_to "取消", admin_category_products_path, class: "btn btn-danger" %>
+	<% end %>
+</div>

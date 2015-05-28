@@ -1,27 +1,27 @@
-<p id="notice"><%= notice %></p>
+<h3>Admin > Categories</h3>
 
-<h1>Listing Admin Categories</h1>
-
-<table>
+<table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>商品類別編號</th>
+      <th>商品類別名稱</th>
+      <th>修改商品類別</th>
+      <th>刪除商品類別</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @admin_categories.each do |admin_category| %>
-      <tr>
-        <td><%= admin_category.title %></td>
-        <td><%= link_to '類別商品', admin_category_products_path(admin_category) %></td>
-        <td><%= link_to 'Show', admin_category %></td>
-        <td><%= link_to 'Edit', edit_admin_category_path(admin_category) %></td>
-        <td><%= link_to 'Destroy', admin_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  	<% @admin_category.each do |admin_category| %>
+	    <tr>
+	      <td><%= admin_category.id %></td>
+	      <td><%= link_to "#{admin_category.title}", admin_category_products_path(admin_category) %></td>
+	      <td><%= link_to "修改", edit_admin_category_path(admin_category.id) %></td>
+	      <td><%= link_to "刪除", admin_category_path(admin_category.id), :method => :delete, data: {confirm: "確定要刪除此類別？"} %></td>
+	    </tr>
     <% end %>
   </tbody>
-</table>
+</table> 
 
-<br>
+<%= link_to "新增商品類別", new_admin_category_path, class: "btn btn-success" %>
 
-<%= link_to 'New Category', new_admin_category_path %>
+
+

@@ -1,74 +1,57 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :set_admin_category, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user
 
-  # GET /admin/categories
-  # GET /admin/categories.json
   def index
-    @admin_categories = Admin::Category.all
+  	@admin_category = Admin::Category.all
   end
 
-  # GET /admin/categories/1
-  # GET /admin/categories/1.json
-  def show
-  end
-
-  # GET /admin/categories/new
   def new
-    @admin_category = Admin::Category.new
+  	@admin_category = Admin::Category.new
   end
 
-  # GET /admin/categories/1/edit
-  def edit
-  end
-
-  # POST /admin/categories
-  # POST /admin/categories.json
   def create
-    @admin_category = Admin::Category.new(admin_category_params)
-
-    respond_to do |format|
-      if @admin_category.save
-        format.html { redirect_to @admin_category, notice: 'Category was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_category }
-      else
-        format.html { render :new }
-        format.json { render json: @admin_category.errors, status: :unprocessable_entity }
-      end
+  	@admin_category = Admin::Category.new(category_params)
+	  if @admin_category.save  
+    	flash[:success] = "成功新增商品類別"
+    	redirect_to admin_categories_path
+    else
+     	flash[:error] = ""  
+  		render :action => :new
     end
   end
 
-  # PATCH/PUT /admin/categories/1
-  # PATCH/PUT /admin/categories/1.json
+  def edit
+  	@admin_category = Admin::Category.find(params[:id])
+  end
+
   def update
-    respond_to do |format|
-      if @admin_category.update(admin_category_params)
-        format.html { redirect_to @admin_category, notice: 'Category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_category }
-      else
-        format.html { render :edit }
-        format.json { render json: @admin_category.errors, status: :unprocessable_entity }
-      end
+  	@admin_category = Admin::Category.find(params[:id])
+  	if @admin_category.update(update_category_params)
+       flash[:success] = "成功修改商品類別名稱"
+  	   redirect_to admin_categories_path
+    else
+       flash[:error] = ""
+       render :action => :edit
     end
   end
 
-  # DELETE /admin/categories/1
-  # DELETE /admin/categories/1.json
   def destroy
-    @admin_category.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_categories_url, notice: 'Category was successfully destroyed.' }
-      format.json { head :no_content }
+  	@admin_category = Admin::Category.find(params[:id])
+  	if @admin_category.destroy
+       flash[:success] = "已成功刪除商品類別"
+    else
+       flash[:error] = ""
     end
+    redirect_to admin_categories_path
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin_category
-      @admin_category = Admin::Category.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_category_params
-      params[:admin_category]
-    end
+protected
+  def category_params
+  	params.require(:admin_category).permit(:title, :description)
+  end
+
+  def update_category_params
+  	params.require(:admin_category).permit(:id, :title, :description)
+  end
 end

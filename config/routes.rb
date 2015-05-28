@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
 
+  resources :welcome  
+  resources :categories do
+    resources :products, :controller => 'category_products'
+  end
   
+  resources :users
+
   namespace :admin do
+    resource :login, only: [:new, :create, :destroy]
     resources :categories do
       resources :products, :controller => 'category_products'
     end
   end
-
-  resources :users
-  resource :login, only: [:new, :create, :destroy]
-  resources :categories do
-    resources :products, :controller => 'category_products'
-  end
-
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
