@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# kaminari
+gem 'kaminari'
+
 # Font Awesome SASS
 gem 'font-awesome-sass'
 

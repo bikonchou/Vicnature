@@ -1,14 +1,13 @@
 <!-- Sidebar -->
-<div class="container">
-	<div class="col-md-3">
-	    <div class="list-group">
-			<h2>商品類別</h2>
-			<h3>Product Categories</h3>
-	        <hr class="intro-divider">
-			<% @category.each do |category| %>
-			<%= link_to "#{category.title}", category_products_path(category), class: "list-group-item" %>
-			<br>
+<div class="col-md-3">
+	<br>
+	<br>
+        <div class="list-group">
+			<% @categories.each do |category| %>
+				<li class="list-group-item">
+				<%= link_to "#{category.title}", category_products_path(category)%>
+				<span class="badge"><%= category.products.count %> 項商品</span>
+				</li>
 			<% end %>
 		</div>
-	</div>
 </div>

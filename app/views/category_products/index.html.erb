@@ -1,10 +1,16 @@
-<% @products.each do |p| %>
-	<%= p.name %>
-	<%= p.id %>
-	<%= image_tag p.image.url %>
-	<%= link_to "修改", edit_category_product_path(@category, p) %>
-	<%= link_to "刪除", category_product_path(@category, p), :method => :delete %>
-	<br>
-<% end %>
+<br>
+<br>
+<div class="col-md-9">
+	<div class="row">
+		<% @products.each do |p| %>
+			<div class="col-md-4" >
+				<div class="products-item">
+					<%= image_tag p.image.url(:medium), class: "img-thumbnail"%>
+		            <h4><%= link_to "#{p.name}", category_product_path(@category, p) %></h4>   
+		        </div>
+	        </div>
+		<% end %>
+	</div>
 
-	<%= link_to '新增類別商品', new_category_product_path(@category) %>
+	<%= paginate @products %>
+</div>
