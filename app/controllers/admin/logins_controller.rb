@@ -23,6 +23,6 @@ class Admin::LoginsController < ApplicationController
   def destroy
     sign_out
     flash[:success] = "您已成功登出"
-    redirect_to categories_path
+    redirect_to welcome_index_path
   end
 end
