@@ -8,4 +8,5 @@ class Product < ActiveRecord::Base
 	
 	# 價錢須為整數
 	validates_numericality_of :price, :only_integer => true
+	validates_presence_of :name
 end
