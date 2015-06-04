@@ -10,9 +10,8 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 
 		if @user.save
-			# sign_in(@user)
 			flash[:success] = "Welcome, #{@user.name}!"
-			redirect_to 
+			redirect_to admin_categories_path
 		else	
 			flash[:error] = "There are #{@user.errors.count} errors, #{@user.errors.full_messages}" 
 			render action: 'new'
