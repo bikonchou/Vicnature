@@ -1,7 +1,6 @@
-<div class="col-md-offset-2 col-md-5">
+<div class="col-md-offset-4 col-md-4">
+	<h3>Admin > 新增管理者</h3>
 	<%= form_for @user, :url => users_path, class: "form-horizontal" do |u| %>
-		<fieldset>
-			<legend>加入會員</legend>
 		<div class="form-group">
 		<%= u.label :account, class: "sr-only" %>
 		<%= u.text_field :account, class: "form-control", placeholder: "Account", required: "true", :autofocus => true %>
@@ -23,7 +22,7 @@
 		<%= u.password_field :password_confirmation, class: "form-control", placeholder: "Enter password again", type: "password", required: "true"%> 
 		</div>
 		
-		<%= u.button "submit" , class: "btn btn-lg btn-primary btn-block", type: "submit" %>
+		<%= u.button "submit" , class: "btn btn-success", type: "submit" %>
 
 		</fieldset>
 	<% end %>
