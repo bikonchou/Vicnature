@@ -224,7 +224,7 @@ h6 {
     margin-top: 1px;    
     padding: 25px 0;
     color: #f8f8f8;
-    background: url'/assets/bannerbg-51735b22d3c998edc7713a9d26290fa935382c519da0b29023e5e9e94052fcca.jpg') no-repeat center center;
+    background: url('/assets/bannerbg-51735b22d3c998edc7713a9d26290fa935382c519da0b29023e5e9e94052fcca.jpg') no-repeat center center;
     background-size: cover;
 }
 
