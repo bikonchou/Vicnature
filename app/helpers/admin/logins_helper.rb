@@ -1,5 +1,4 @@
 module Admin::LoginsHelper
-
 	def sign_in(user) # 把用戶登入
 		session[:login_token] = user.login_token
 	end

@@ -6,11 +6,13 @@
 			<div class="col-md-4" >
 				<div class="products-item">
 					<%= image_tag p.image.url(:medium), class: "img-thumbnail"%>
-		            <h4><%= link_to "#{p.name}", category_product_path(@category, p) %></h4>   
-		        </div>
-	        </div>
+	        <h4><%= link_to "#{p.name}", category_product_path(@category, p) %></h4>   
+        </div>
+        <!-- /.products-item -->
+      </div>
+      <!-- /.row -->
 		<% end %>
 	</div>
-
 	<%= paginate @products %>
 </div>
+<!-- /.col-md-9 -->

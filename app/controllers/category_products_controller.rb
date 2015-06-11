@@ -15,5 +15,5 @@ protected
 	def find_category
 		@category = Category.find(params[:category_id])
 	end
-
+	
 end

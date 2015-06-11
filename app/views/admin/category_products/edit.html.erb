@@ -1,6 +1,7 @@
 <div class= "col-md-offset-4 col-md-4">
 	<h3>Admin > Categories > <%= @admin_category.title %> > <%= @product.name %> > Edit</h3>
 	<br>
+	
 	<%= form_for @product, :url => admin_category_product_path(@admin_category, @product), :method => :patch, class: "form-horizontal" do |product|%>
 		<div class="form-group">
 			<%= product.label :name, "輸入商品名稱" %>	
@@ -14,8 +15,9 @@
 			<br>
 			<%= product.label :image, "選擇商品圖片" %>
 			<%= product.file_field :image, class: "form-control" %>
-	  	</div>
-			<br>
+  	</div>
+		
+		<br>
 		<%= product.submit "送出", class: "btn btn-success" %>
 		<br>
 		<br>

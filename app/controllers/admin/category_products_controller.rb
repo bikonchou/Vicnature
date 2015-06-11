@@ -17,8 +17,8 @@ class Admin::CategoryProductsController < ApplicationController
 	def create
 		@product = @admin_category.products.build(product_params)
 		if @product.save
-		    flash[:success] = "已成功新增商品"	
-		    redirect_to admin_category_products_path
+	    flash[:success] = "已成功新增商品"	
+	    redirect_to admin_category_products_path
 		else
 			flash[:error] = ""
 			render :action => :new
@@ -59,5 +59,5 @@ protected
 	def product_params
 		params.require(:product).permit(:name, :description, :price, :image)
 	end	
-
+	
 end

@@ -27,24 +27,23 @@ class Admin::CategoriesController < ApplicationController
   def update
   	@admin_category = Admin::Category.find(params[:id])
   	if @admin_category.update(update_category_params)
-       flash[:success] = "成功修改商品類別名稱"
-  	   redirect_to admin_categories_path
+      flash[:success] = "成功修改商品類別名稱"
+      redirect_to admin_categories_path
     else
-       flash[:error] = ""
-       render :action => :edit
+	    flash[:error] = ""
+      render :action => :edit
     end
   end
 
   def destroy
   	@admin_category = Admin::Category.find(params[:id])
   	if @admin_category.destroy
-       flash[:success] = "已成功刪除商品類別"
+      flash[:success] = "已成功刪除商品類別"
     else
-       flash[:error] = ""
+      flash[:error] = ""
     end
     redirect_to admin_categories_path
   end
-
 
 protected
   def category_params

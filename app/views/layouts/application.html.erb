@@ -7,20 +7,21 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 	<!-- 顯示alert -->
 	<div class="container-fluid">   
-	    <% if flash[:error].presence %>
-	        <div class="alert alert-danger alert-error">
-	            <%= flash[:error] %>
-	        </div>
-	    <% else %>
-	        <% flash.each do |key, value| %>
-	        <div class="alert alert-<%= key %>">
-	            <%= value %>
-	        </div>
-	        <% end %>
-	    <% end %>
+	  <% if flash[:error].presence %>
+      <div class="alert alert-danger alert-error">
+        <%= flash[:error] %>
+      </div>
+    <% else %>
+      <% flash.each do |key, value| %>
+	      <div class="alert alert-<%= key %>">
+	        <%= value %>
+        </div>
+      <% end %>
+    <% end %>
 	</div>
 
 	<div class="container">

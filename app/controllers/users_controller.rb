@@ -4,11 +4,11 @@ class UsersController < ApplicationController
 	end
 
 	def show
+
 	end
 
 	def create
 		@user = User.new(user_params)
-
 		if @user.save
 			flash[:success] = "Welcome, #{@user.name}!"
 			redirect_to admin_categories_path

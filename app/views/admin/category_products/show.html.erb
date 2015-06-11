@@ -8,9 +8,11 @@
 	<br>
 	<div class="row">
 		<div class="col-md-3">
-				<%= image_tag @product.image.url, class: "img-thumbnail" %>
+			<%= image_tag @product.image.url, class: "img-thumbnail" %>
 		</div> 
+
 		<div class="col-md-7">
+			
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<h5>商品名稱</h5>					
@@ -37,6 +39,10 @@
 					<h5><%= @product.description %></h5>
 				</div>
 			</div>
-		</div>
+
+		</div>	
+		<!-- /.col-md-7 -->
 	</div>		
+	<!-- /.row -->
 </div>
+<!-- /.col-md-offset-2 -->

@@ -1,6 +1,7 @@
 <div class="col-md-offset-4 col-md-4">
 	<h3>Admin > <%= "#{current_user.name}" %> > 修改密碼</h3>
 	<%= form_for :user, :url => user_path(current_user), :method => :patch, class: "form-horizontal" do |user|%>
+		
 		<div class="form-group">
 			<%= user.label :password, class: "sr-only" %>
 			<%= user.text_field :password, class: "form-control", placeholder: "請輸入目前密碼", required: "true", :autofocus => true, :type => "password" %>
