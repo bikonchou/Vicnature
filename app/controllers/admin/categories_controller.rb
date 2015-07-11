@@ -2,7 +2,7 @@ class Admin::CategoriesController < ApplicationController
   before_action :authenticate_user
 
   def index
-  	@admin_category = Admin::Category.all
+  	@admin_category = Admin::Category.all.order(:id)
   end
 
   def new
@@ -15,7 +15,7 @@ class Admin::CategoriesController < ApplicationController
     	flash[:success] = "成功新增商品類別"
     	redirect_to admin_categories_path
     else
-     	flash[:error] = ""  
+     	flash[:error] = @admin_category.errors.full_messages
   		render :action => :new
     end
   end
@@ -30,7 +30,7 @@ class Admin::CategoriesController < ApplicationController
       flash[:success] = "成功修改商品類別名稱"
       redirect_to admin_categories_path
     else
-	    flash[:error] = ""
+	    flash[:error] = @admin_category.errors.full_messages
       render :action => :edit
     end
   end
@@ -40,7 +40,7 @@ class Admin::CategoriesController < ApplicationController
   	if @admin_category.destroy
       flash[:success] = "已成功刪除商品類別"
     else
-      flash[:error] = ""
+      flash[:error] = @admin_category.errors.full_messages
     end
     redirect_to admin_categories_path
   end

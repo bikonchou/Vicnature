@@ -20,7 +20,7 @@ class Admin::CategoryProductsController < ApplicationController
 	    flash[:success] = "已成功新增商品"	
 	    redirect_to admin_category_products_path
 		else
-			flash[:error] = ""
+			flash[:error] = @product.errors.full_messages
 			render :action => :new
 		end
 	end
@@ -35,7 +35,7 @@ class Admin::CategoryProductsController < ApplicationController
 			flash[:success] = "已成功修改商品"			
 			redirect_to admin_category_products_path(@admin_category)
 		else
-			flash[:error] = ""
+			flash[:error] = @product.errors.full_messages
 			render :action => :edit
 		end
 	end
@@ -46,7 +46,7 @@ class Admin::CategoryProductsController < ApplicationController
 			flash[:success] = "已成功刪除商品"
 			redirect_to admin_category_products_path
 		else
-			flash[:error] = ""
+			flash[:error] = @product.errors.full_messages
 			redirect_to :back
 		end
 	end
